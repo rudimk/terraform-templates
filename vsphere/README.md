@@ -1,5 +1,11 @@
 # vSphere
 
+## Versioning
+
+This plan works best with Terraform v0.12.0 and the vSphere provider v1.26.0. Newer versions tend to break the plan, ostensibly due to changes in the VMware API.
+
+## Usage
+
 To begin orchestrating VMs on vSphere, you need to first edit `vars.env`. Note that the template is untracked, so any changes you make will _not_ be tracked by Git.
 
 1. `TF_VAR_vsphere_user`: The admin username for vSphere.
@@ -17,3 +23,5 @@ To begin orchestrating VMs on vSphere, you need to first edit `vars.env`. Note t
 13. `TF_VAR_vm_ip`: The IP address you'd like to set for the VM. Be careful, since this has to match with the IP range defined for the VLAN tagged to `TF_VAR_vsphere_network`.
 
 Once you've updated these values, run `source vars.env`, then run `terraform plan` to check for any errors. If everything's green, go ahead and orchestrate the VM: `terraform apply`.
+
+
