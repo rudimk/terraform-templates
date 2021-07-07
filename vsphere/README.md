@@ -21,6 +21,12 @@ To begin orchestrating VMs on vSphere, you need to first edit `vars.env`. Note t
 11. `TF_VAR_vm_guest`: The VMware Guest ID of the OS the VM will run. A list can be found [here](https://vdc-download.vmware.com/vmwb-repository/dcr-public/da47f910-60ac-438b-8b9b-6122f4d14524/16b7274a-bf8b-4b4c-a05e-746f2aa93c8c/doc/vim.vm.GuestOsDescriptor.GuestOsIdentifier.html).
 12. `TF_VAR_vm_domain`: A domain alias for the VM. 
 13. `TF_VAR_vm_ip`: The IP address you'd like to set for the VM. Be careful, since this has to match with the IP range defined for the VLAN tagged to `TF_VAR_vsphere_network`.
+14. `TF_VAR_vm_vcpu`: The number of vCPUs you'd like to allocate for this VM.
+15. `TF_VAR_vm_ram`: The amount of RAM you wish to use, in MB.
+16. `TF_VAR_vm_disk`: The root volume's size, in GB.
+17. `TF_VAR_ssh_user`: The user you intend to use for logging into the VM over SSH.
+18. `TF_VAR_ssh_passwd`: The password for the user you'd like to use on the VM.
+19. `TF_VAR_ssh_pub_key`: The SSH public key you'd like to inject into the VM. Be sure to wrap this in double quotes.
 
 Once you've updated these values, run `source vars.env`, then run `terraform plan` to check for any errors. If everything's green, go ahead and orchestrate the VM: `terraform apply`.
 
